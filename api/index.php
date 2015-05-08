@@ -29,6 +29,9 @@ $di->set('db', function(){
 $app = new Micro($di);
 
 require_once('routes/users.php');
+$app->get('/',function() use($app){
+    echo 'Welcome to familytree API';
+});
 $app->notFound(function () use ($app) {
     $app->response->setStatusCode(404, "Not Found")->sendHeaders();
     echo 'This is crazy, but this page was not found!';
